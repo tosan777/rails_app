@@ -12,5 +12,10 @@
 
   <body>
     <%= yield %>
+    # flashメッセージ
+    # noticeとalertという変数に格納されている
+    # 表示させたい場合はapp/views/layouts/application.html.erbに記述する
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>
