@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  # 掲示板のルーティング
   get 'topics/index'
-  get 'topics/show'
+  # tpics/show/:idへのアクセスは => topicsコントローラーのshowメソッドが受け取る。
+  # topics_showでルーティング
+  get 'topics/show/:id' => 'topics#show', as :topics_show
+
+
   devise_for :users
   get 'home/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
