@@ -2,6 +2,7 @@
     <div class="topic__inner">
         <h1 class="topic__ttl">トピック一覧</h1>
         <ul class="topic__list">
+            <%# %>
             <% @topics.each do |topic| %>
                 <li class="topic__list-item">
                     <%= link_to topic.title, topics_show_path(topic.id) %>
