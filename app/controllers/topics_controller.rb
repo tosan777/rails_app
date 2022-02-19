@@ -17,6 +17,16 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic].permit(:title))
     # フォームから送られてきたデータを保存
     @topic.save
+    # ボタンを押した際にルートバスにリダイレクト
+    redirect_to root_path
+  end
+
+  # トピック一覧の該当箇所の削除ボタンを押したときのアクション
+  def delete
+    # Topic.find(params[:id]) = モデルと紐づいているデータベースのテーブルから、レコードを一つ取り出している
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    redirect_to root_path
   end
 
   def show

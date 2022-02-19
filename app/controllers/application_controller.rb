@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    # 共通の処理を書くことのできるファイル
 
     # リクエストしてきたユーザーを認証する。
     # ユーザーがログイン済みの場合はアクセスを許可して、未ログインの場合はroot_pathにリダイレクトする。

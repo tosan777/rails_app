@@ -27,15 +27,19 @@
                 <%# コントローラーのtopicsで取得した、DBのtopicsを取得 %>
                 <% @topics.each do |topic| %>
                     <li class="topic__list-item">
+                        <%# DBのtopicsのカラムの表示 %>
                         <%# link_to = aタグの生成 %>
                         <%# topic.title = のタイトルの表示 %>
                         <%# topics_show_path()でidの取得 %>
                         <%= link_to topic.title, topics_show_path(topic.id) %>
+                        <%# DBのtopicsのカラムの削除 %>
+                        <%# method: :delete = topicsコントローラーのdeleteアクションを指定 %>
+                        <%# data: {confirm: ''} = ボタンを押下した際に画面上にアラートが出る %>
+                        <%= link_to '[削除]', topic_delete_path(topic.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
                     </li>
                 <% end %>
             </ul>
         </div>
-
     </div>
 </div>
 
