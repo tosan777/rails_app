@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  # 掲示板のルーティング
-  get 'topics/index'
   # ’topics/show/:id’へのアクセスは => tpicsコントローラのshowメソッドが受け取る。
-  # tpics_showという識別子を付与することで、プログラムからルーティングを特定できる
+  # topics_showという識別子を付与することで、プログラムからルーティングを特定できる
   get 'topics/show/:id' => 'topics#show', as: :topics_show
+  # topicを新規登録する際に使用するルーティング
+  # 新規でデータを登録したいのでpostを使用する
+  post 'topics/create' => 'topics#create'
 
 
   devise_for :users
