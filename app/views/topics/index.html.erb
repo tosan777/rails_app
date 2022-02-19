@@ -10,26 +10,32 @@
 
 <div class="topic">
     <div class="topic__inner">
-        <h1 class="topic__ttl">トピック一覧</h1>
-        <ul class="topic__list">
-            <%# コントローラーのtopicsで取得した、DBのtopicsを取得 %>
-            <% @topics.each do |topic| %>
-                <li class="topic__list-item">
-                    <%# link_to = aタグの生成 %>
-                    <%# topic.title = のタイトルの表示 %>
-                    <%# topics_show_path()でidの取得 %>
-                    <%= link_to topic.title, topics_show_path(topic.id) %>
-                </li>
-            <% end %>
-        </ul>
 
-        <h1>トピック新規登録</h1>
-        <%# 登録先を@newTopicで指定 %>
-        <%# :url => {:action}でcreateアクションを指定 %>
-        <%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
-            <%= f.text_field :title %>
-            <%= f.submit %>
-        <% end %>
+        <div class="topic__form-wrap">
+            <h1 class="topic__form-ttl">トピック新規登録</h1>
+            <%# 登録先を@newTopicで指定 %>
+            <%# :url => {:action}でcreateアクションを指定 %>
+            <%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
+                <%= f.text_field :title, class: 'topic__form-input' %>
+                <%= f.submit %>
+            <% end %>
+        </div>
+
+        <div class="topic__box">
+            <h1 class="topic__box-ttl">トピック一覧</h1>
+            <ul class="topic__list">
+                <%# コントローラーのtopicsで取得した、DBのtopicsを取得 %>
+                <% @topics.each do |topic| %>
+                    <li class="topic__list-item">
+                        <%# link_to = aタグの生成 %>
+                        <%# topic.title = のタイトルの表示 %>
+                        <%# topics_show_path()でidの取得 %>
+                        <%= link_to topic.title, topics_show_path(topic.id) %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+
     </div>
 </div>
 

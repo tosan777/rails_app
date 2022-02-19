@@ -1,3 +1,12 @@
+<%# ログアウトボタン %>
+<%= link_to 'ログアウト', 
+    destroy_user_session_path,
+    class: 'dropdown-item',
+    method: :delete,
+    class: "logout"
+%>
+
+
 <div class="main">
     <div class="home__index">
         <p class="home__index-text">

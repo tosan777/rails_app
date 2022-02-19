@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
 
-  # リクエストしてきたユーザーを認証する。
-  # ユーザーがログイン済みの場合はアクセスを許可して、未ログインの場合はroot_pathにリダイレクトする。
-  before_action :authenticate_user!
-
   def index
+  end
+
+  def after_sign_in_path_for(resource)
+    topics_show_path
   end
 end
