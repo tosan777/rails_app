@@ -30,5 +30,10 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
+    # where = テーブル内の条件に一致したレコードを配列で取得できる
+    @posts = Post.where(topic_id: params[:id])
+    # 書き込み一覧でform_forメソッドを使うため、Postモデルの生成
+    @newpost = Post.new(:topic_id => params[:id])
   end
 end

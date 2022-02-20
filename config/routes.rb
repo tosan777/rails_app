@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # 新規でデータを登録したいのでpostを使用する
   post 'topics/create' => 'topics#create'
   delete 'topics/delete/:id' => 'topics#delete', as: :topic_delete
+  post 'posts/create' => 'post#create', as: :post_create
 
 
   devise_for :users
