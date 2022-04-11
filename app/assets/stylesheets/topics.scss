@@ -51,3 +51,62 @@
     }
 
 }
+
+
+// show.html.erb
+.show {
+
+    padding-top: 100px;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        width: 1100px;
+        margin: 0 auto;
+    }
+
+    &__form {
+
+        &-wrap {
+            width: 300px;
+        }
+
+        &-ttl {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        &-label {
+            margin-bottom: 5px;
+        }
+
+        &-input {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border: 1px solid #000;
+            border-radius: 8px;
+        }
+
+        &-submit {
+            padding: 5px 10px 7px 10px;
+            border: 1px solid #000;
+            border-radius: 8px;
+            background-color: #dfdfdf;
+        }
+
+        &-submit:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__box {
+        width: 700px;
+
+        &-ttl {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -1,22 +1,36 @@
 
-<%# topicsコントローラーのshowメソッドで取得したTopicモデルの該当IDのレコードのタイトルを表示させている %>
-<h1><%= @topic.title %></h1>
-<%# Postのレコードをループしつつ、それぞれにインデックス番号を割り当てる %>
-<%# @posts = post %>
-<%# インデックス番号 = idx %>
-<% @posts.each_with_index do |post , idx| %>
-    <p>
-        <%# idxで投稿の番号を表示 %>
-        <%= idx + 1 %>. <%= post.name %> : <%= post.body %>
-    </p>
-<% end %>
 
-<h3>新規書き込み</h3>
-<%= form_for @newpost, :url => post_create_path do |f| %>
-    <p>お名前</p>
-    <p><%= f.text_field :name %></p>
-    <p>本文</p>
-    <p><%= f.text_area :body %></p>
-    <%= f.hidden_field :topic_id %>
-    <%= f.submit %>
-<% end %>
+<div class="show">
+    <div class="show__inner">
+
+        <div class="show__form-wrap">
+            <h3 class="show__form-ttl">新規書き込み</h3>
+            <%= form_for @newpost, :url => post_create_path do |f| %>
+                <p class="show__form-label">お名前</p>
+                <p><%= f.text_field :name, class: 'show__form-input' %></p>
+                <p class="show__form-label">本文</p>
+                <p><%= f.text_area :body, class: 'show__form-input' %></p>
+                <%= f.hidden_field :topic_id %>
+                <%= f.submit class: 'show__form-submit' %>
+            <% end %>
+        </div>
+
+        <div class="show__box">
+            <%# topicsコントローラーのshowメソッドで取得したTopicモデルの該当IDのレコードのタイトルを表示させている %>
+            <h1 class="show__box-ttl"><%= @topic.title %></h1>
+            <%# Postのレコードをループしつつ、それぞれにインデックス番号を割り当てる %>
+            <%# @posts = post %>
+            <%# インデックス番号 = idx %>
+            <% @posts.each_with_index do |post , idx| %>
+                <p>
+                    <%# idxで投稿の番号を表示 %>
+                    <%= idx + 1 %>. <%= post.name %> : <%= post.body %>
+                    <%# <%= link_to '[削除]', post_delete_path(post.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+                </p>
+            <% end %>
+
+        </div>
+    </div>
+</div>
+
+
